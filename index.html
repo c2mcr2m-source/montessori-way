@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ec">
+  <meta name="description" content="A welcoming introduction to Montessori education, thoughtfully prepared classrooms, meaningful activities, and the teachers who guide discovery.">
+  <title>The Montessori Way — room to wonder, space to grow</title>
+  <style>
+    :root {
+      --paper: #f7f4ec;
+      --paper-deep: #eee9dc;
+      --ink: #27362d;
+      --muted: #657168;
+      --leaf: #506c57;
+      --leaf-dark: #36513e;
+      --sage: #dce5d8;
+      --clay: #bf684a;
+      --clay-pale: #f2dfd4;
+      --sun: #e7bd72;
+      --white: #fffdf8;
+      --line: #d9d6ca;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Aptos", "Segoe UI", Arial, sans-serif;
+      --shadow: 0 22px 58px rgba(44, 52, 41, .12);
+      --radius-xl: 2rem;
+      --radius-lg: 1.25rem;
+      --content: 1160px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--clay); outline-offset: 4px; border-radius: 4px; }
+    .skip-link { position: absolute; z-index: 20; left: 1rem; top: -4rem; padding: .7rem 1rem; background: var(--ink); color: white; border-radius: 0 0 .6rem .6rem; }
+    .skip-link:focus { top: 0; }
+    .wrap { width: min(var(--content), calc(100% - 3rem)); margin-inline: auto; }
+    .topbar { position: sticky; z-index: 10; top: 0; border-bottom: 1px solid rgba(39,54,45,.08); background: rgba(247,244,236,.94); backdrop-filter: blur(14px); }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .brand { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; font-family: var(--serif); font-size: 1.15rem; font-weight: 700; letter-spacing: -.025em; white-space: nowrap; }
+    .brand-mark { display: grid; place-items: center; width: 38px; height: 38px; color: var(--leaf-dark); }
+    .nav-links { display: flex; align-items: center; gap: clamp(1rem, 2.2vw, 2rem); padding: 0; margin: 0 0 0 auto; list-style: none; }
+    .nav-links a { color: #48564b; text-decoration: none; font-size: .91rem; font-weight: 600; transition: color .2s ease; }
+    .nav-links a:hover { color: var(--clay); }
+    .nav-cta, .button { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; padding: .76rem 1.15rem; border: 1px solid var(--leaf-dark); border-radius: 999px; background: var(--leaf-dark); color: var(--white); text-decoration: none; font-size: .9rem; line-height: 1.2; font-weight: 700; transition: transform .2s ease, background .2s ease; }
+    .nav-cta:hover, .button:hover { background: #263c2d; transform: translateY(-2px); }
+    .menu-toggle { display: none; border: 1px solid var(--line); background: var(--white); color: var(--ink); width: 44px; height: 44px; border-radius: 50%; cursor: pointer; }
+    .hero { padding: clamp(3.5rem, 7vw, 6.6rem) 0 5rem; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.04fr .96fr; align-items: center; gap: clamp(2rem, 5vw, 5rem); }
+    .eyebrow { display: flex; align-items: center; gap: .65rem; margin: 0 0 1.1rem; color: var(--leaf); text-transform: uppercase; letter-spacing: .16em; font-size: .72rem; font-weight: 800; }
+    .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--clay); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 500; letter-spacing: -.045em; }
+    h1 { max-width: 650px; margin-bottom: 1.25rem; font-size: clamp(3.2rem, 6.5vw, 5.6rem); line-height: .99; }
+    h1 em { color: var(--clay); font-weight: 400; }
+    .hero-copy { max-width: 510px; margin-bottom: 1.8rem; color: var(--muted); font-size: clamp(1.04rem, 1.4vw, 1.17rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1rem; }
+    .button-light { border-color: var(--line); background: transparent; color: var(--ink); }
+    .button-light:hover { background: var(--white); }
+    .arrow { font-size: 1.1rem; line-height: 0; }
+    .hero-note { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem; margin-top: 2.25rem; color: var(--muted); font-size: .84rem; }
+    .note-sprig { display: grid; place-items: center; width: 33px; height: 33px; border-radius: 50%; background: var(--sage); color: var(--leaf-dark); }
+    .hero-art { position: relative; min-height: 500px; }
+    .hero-photo { position: absolute; inset: 0 5% 0 7%; width: 88%; height: 100%; object-fit: cover; object-position: center 52%; border-radius: 48% 48% 1.4rem 1.4rem; box-shadow: var(--shadow); }
+    .hero-photo-frame { position: absolute; inset: 1.5rem 2% -1.4rem 12%; border: 1px solid #c9bca7; border-radius: 48% 48% 1.5rem 1.5rem; pointer-events: none; }
+    .photo-label { position: absolute; left: 0; bottom: 2.1rem; display: flex; align-items: center; gap: .7rem; max-width: 220px; padding: .9rem 1.1rem; border-radius: .9rem; background: var(--white); box-shadow: 0 10px 30px rgba(40,45,36,.12); color: var(--leaf-dark); font-family: var(--serif); font-size: 1rem; line-height: 1.3; transform: rotate(-3deg); }
+    .photo-label span { display: grid; place-items: center; flex: 0 0 32px; height: 32px; border-radius: 50%; background: var(--clay-pale); color: var(--clay); font-family: var(--sans); }
+    .float-stamp { position: absolute; top: 2.1rem; right: 0; display: grid; place-items: center; width: 88px; height: 88px; border: 1px solid rgba(39,54,45,.2); border-radius: 50%; background: var(--sun); color: var(--ink); text-align: center; font-size: .7rem; font-weight: 800; line-height: 1.2; letter-spacing: .05em; transform: rotate(10deg); }
+    .section { padding: clamp(4.5rem, 8vw, 7.5rem) 0; }
+    .section-head { max-width: 680px; margin-bottom: 3rem; }
+    .section-head.center { margin-inline: auto; text-align: center; }
+    .section-head.center .eyebrow { justify-content: center; }
+    h2 { margin-bottom: 1rem; font-size: clamp(2.35rem, 4.4vw, 3.8rem); line-height: 1.05; }
+    .section-intro { margin-bottom: 0; max-width: 650px; color: var(--muted); font-size: 1.05rem; }
+    .center .section-intro { margin-inline: auto; }
+    .approach { background: var(--sage); }
+    .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .principle { min-height: 230px; padding: 1.65rem; border: 1px solid rgba(54,81,62,.15); border-radius: var(--radius-lg); background: rgba(255,253,248,.55); }
+    .principle-icon { display: grid; place-items: center; width: 46px; height: 46px; margin-bottom: 1.45rem; border-radius: 50%; background: var(--white); color: var(--clay); }
+    .principle h3 { margin-bottom: .55rem; font-size: 1.45rem; }
+    .principle p { margin-bottom: 0; color: #58665b; font-size: .94rem; }
+    .room { background: var(--white); }
+    .room-grid { display: grid; grid-template-columns: .95fr 1.05fr; align-items: center; gap: clamp(2.2rem, 7vw, 7rem); }
+    .room-photo-wrap { position: relative; padding: 0 1.2rem 1.2rem 0; }
+    .room-photo-wrap::after { position: absolute; z-index: 0; content: ""; inset: 1.15rem 0 0 1.15rem; border-radius: var(--radius-xl); background: var(--clay-pale); }
+    .room-photo { position: relative; z-index: 1; width: 100%; height: 495px; object-fit: cover; object-position: 45% center; border-radius: var(--radius-xl); }
+    .image-credit { display: block; margin-top: .6rem; color: #5e6a61; font-size: .72rem; text-align: right; }
+    .image-credit a { text-underline-offset: 2px; }
+    .room-list { margin: 1.8rem 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .room-list li { display: flex; gap: .9rem; padding: .9rem 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: .94rem; }
+    .room-list strong { min-width: 132px; color: var(--ink); font-weight: 700; }
+    .activity { background: var(--paper); }
+    .activity-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: .9rem; }
+    .activity-card { min-height: 238px; padding: 1.3rem 1.2rem; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--white); transition: transform .22s ease, box-shadow .22s ease; }
+    .activity-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(39,54,45,.08); }
+    .activity-card:nth-child(2n) { background: #f4ede1; }
+    .activity-icon { display: grid; place-items: center; width: 45px; height: 45px; margin-bottom: 1rem; border-radius: 14px; background: var(--sage); color: var(--leaf-dark); }
+    .activity-card:nth-child(2n) .activity-icon { background: var(--clay-pale); color: #9d4e34; }
+    .activity-card h3 { margin-bottom: .55rem; font-size: 1.24rem; line-height: 1.12; }
+    .activity-card p { margin-bottom: 0; color: var(--muted); font-size: .87rem; line-height: 1.52; }
+    .teacher { position: relative; overflow: hidden; background: var(--leaf-dark); color: var(--white); }
+    .teacher::before { position: absolute; top: -9rem; right: -7rem; width: 32rem; height: 32rem; border: 1px solid rgba(255,255,255,.1); border-radius: 50%; content: ""; }
+    .teacher::after { position: absolute; right: 4rem; bottom: -20rem; width: 38rem; height: 38rem; border: 1px solid rgba(255,255,255,.08); border-radius: 50%; content: ""; }
+    .teacher-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: clamp(2.5rem, 8vw, 8rem); }
+    .teacher .eyebrow { color: #d9e2d3; }
+    .teacher .eyebrow::before { background: var(--sun); }
+    .teacher h2 { max-width: 560px; color: var(--white); }
+    .teacher-copy { max-width: 570px; color: #d5ded5; }
+    .teacher-quote { margin: 1.7rem 0 0; padding: 1rem 0 1rem 1.25rem; border-left: 2px solid var(--sun); color: #f6e7c5; font-family: var(--serif); font-size: 1.25rem; font-style: italic; }
+    .guide-steps { display: grid; gap: .8rem; }
+    .guide-step { display: grid; grid-template-columns: 54px 1fr; align-items: center; gap: 1rem; padding: 1rem 1.1rem; border: 1px solid rgba(255,255,255,.18); border-radius: 1rem; background: rgba(255,255,255,.07); }
+    .step-number { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--sun); color: var(--ink); font-family: var(--serif); font-size: 1.2rem; }
+    .guide-step h3 { margin: 0 0 .1rem; color: var(--white); font-size: 1.25rem; }
+    .guide-step p { margin: 0; color: #d5ded5; font-size: .87rem; }
+    .day { background: #f0e8dc; }
+    .day-flow { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: 2rem; }
+    .day-stop { position: relative; padding: 1.45rem 1.3rem 0; border-top: 1px solid #b9b09f; }
+    .day-stop::before { position: absolute; top: -.39rem; left: 1.3rem; width: 12px; height: 12px; border: 2px solid #f0e8dc; border-radius: 50%; background: var(--clay); box-shadow: 0 0 0 1px var(--clay); content: ""; }
+    .day-time { display: block; margin-bottom: .6rem; color: var(--clay); text-transform: uppercase; letter-spacing: .12em; font-size: .7rem; font-weight: 800; }
+    .day-stop h3 { margin-bottom: .45rem; font-size: 1.3rem; }
+    .day-stop p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .day-note { margin: 1.6rem 0 0; color: var(--muted); font-size: .83rem; font-style: italic; }
+    .questions { background: var(--white); }
+    .faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 8vw, 8rem); align-items: start; }
+    .faq-list { border-top: 1px solid var(--line); }
+    details { border-bottom: 1px solid var(--line); }
+    summary { position: relative; padding: 1.2rem 2.5rem 1.2rem 0; cursor: pointer; list-style: none; font-family: var(--serif); font-size: 1.22rem; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { position: absolute; right: .3rem; top: 1.15rem; content: "+"; color: var(--clay); font-family: var(--sans); font-size: 1.35rem; font-weight: 400; }
+    details[open] summary::after { content: "−"; }
+    details p { max-width: 700px; margin: 0; padding: 0 2rem 1.2rem 0; color: var(--muted); font-size: .95rem; }
+    .visit { padding: 3.5rem 0; background: var(--clay-pale); }
+    .visit-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .visit h2 { max-width: 650px; margin: 0; font-size: clamp(2rem, 4vw, 3.2rem); }
+    .visit .button { flex: 0 0 auto; border-color: #9e4b34; background: #9e4b34; }
+    .visit .button:hover { background: #873b28; }
+    footer { padding: 2.2rem 0; background: var(--ink); color: #e8e8dc; }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .footer-brand { color: var(--white); }
+    .footer-note { max-width: 600px; margin: 0; color: #bac5bb; font-size: .78rem; text-align: right; }
+    .footer-note a { color: #e6c48b; text-underline-offset: 3px; }
+    .hero-note-copy { flex: 1; min-width: 160px; }
+    .spring-button { display: grid; place-items: center; flex: 0 0 auto; width: 48px; height: 48px; padding: 0; border: 0; border-radius: .75rem; background: transparent; cursor: pointer; touch-action: none; }
+    .spring-button:hover .spring-art { transform: translateY(-2px); }
+    .spring-button:active .spring-art { transform: translateY(2px) scale(.98); }
+    .spring-button:focus-visible { outline-offset: 2px; }
+    .mini-spring { width: 42px; height: 46px; margin-left: .25rem; }
+    .spring-art { display: block; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 4px 4px rgba(86,63,47,.16)) drop-shadow(0 0 9px rgba(231,189,114,var(--spring-glow,0))); }
+    .spring-coil { transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(var(--spring-scale,1)); transition: transform .08s linear; }
+    .spring-coil .spring-wire { fill: none; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    .spring-highlight { fill: none; stroke: rgba(255,247,218,.8); stroke-width: 2; stroke-linecap: round; }
+    .spring-cap { fill: #c78358; stroke: #9f6147; stroke-width: 2; }
+    .spring-button.is-charging .spring-coil { transition: none; }
+    .spring-button.is-releasing .spring-coil { animation: spring-return var(--spring-return-duration,.54s) cubic-bezier(.2,.8,.25,1.2) both; }
+    @keyframes spring-return { 0% { transform: scaleY(var(--spring-rebound-start,1)); } 44% { transform: scaleY(var(--spring-rebound-over,1.08)); } 70% { transform: scaleY(var(--spring-rebound-settle,.98)); } 100% { transform: scaleY(1); } }
+    .bead-moment { max-width: 490px; margin-top: 1.5rem; padding: 1rem 1.15rem .85rem; border: 1px solid rgba(54,81,62,.14); border-radius: 1rem; background: #f0f3eb; }
+    .bead-heading { display: flex; align-items: center; justify-content: space-between; gap: .8rem; }
+    .bead-heading label { color: var(--ink); font-family: var(--serif); font-size: 1.12rem; font-weight: 700; }
+    .bead-readout { padding: .22rem .55rem; border-radius: 999px; background: var(--white); color: var(--leaf-dark); font-size: .72rem; font-weight: 700; white-space: nowrap; }
+    .bead-help { margin: .15rem 0 .2rem; color: var(--muted); font-size: .8rem; }
+    #bead-slider { display: block; width: 100%; height: 32px; margin: .15rem 0 0; appearance: none; background: transparent; cursor: grab; touch-action: pan-y; }
+    #bead-slider:active { cursor: grabbing; }
+    #bead-slider::-webkit-slider-runnable-track { height: 8px; border-radius: 999px; background: linear-gradient(90deg, var(--clay) 0%, var(--clay) var(--progress,50%), #d5ded2 var(--progress,50%), #d5ded2 100%); }
+    #bead-slider::-moz-range-track { height: 8px; border-radius: 999px; background: linear-gradient(90deg, var(--clay) 0%, var(--clay) var(--progress,50%), #d5ded2 var(--progress,50%), #d5ded2 100%); }
+    #bead-slider::-webkit-slider-thumb { width: 27px; height: 27px; margin-top: -9.5px; appearance: none; border: 3px solid var(--white); border-radius: 50%; background: radial-gradient(circle at 32% 28%, #fff4d0, #c18b50 61%, #8d603d); box-shadow: 0 2px 7px rgba(38,48,38,.25); }
+    #bead-slider::-moz-range-thumb { width: 21px; height: 21px; border: 3px solid var(--white); border-radius: 50%; background: radial-gradient(circle at 32% 28%, #fff4d0, #c18b50 61%, #8d603d); box-shadow: 0 2px 7px rgba(38,48,38,.25); }
+    .bead-track-labels { display: flex; justify-content: space-between; color: #5f6a61; font-size: .72rem; }
+    .sensory { background: #eee9dc; }
+    .sensory-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.15rem; }
+    .sensory-card { padding: clamp(1.3rem,3vw,2rem); border: 1px solid rgba(39,54,45,.1); border-radius: var(--radius-xl); background: var(--white); box-shadow: 0 12px 30px rgba(39,54,45,.05); }
+    .sensory-card-head { display: flex; align-items: center; justify-content: space-between; gap: .8rem; margin-bottom: .3rem; }
+    .sensory-kicker { color: #9e4b34; text-transform: uppercase; letter-spacing: .14em; font-size: .69rem; font-weight: 800; }
+    .sensory-mark { display: grid; place-items: center; width: 35px; height: 35px; border-radius: 50%; background: var(--sage); color: var(--leaf-dark); }
+    .sensory-card h3 { margin-bottom: .45rem; font-size: 1.7rem; }
+    .sensory-card > p { max-width: 470px; margin-bottom: 1rem; color: var(--muted); font-size: .92rem; }
+    .sound-control-row { display: flex; justify-content: center; margin-top: 1.15rem; }
+    .sound-toggle { display: inline-flex; align-items: center; gap: .5rem; min-height: 42px; padding: .52rem .9rem; border: 1px solid rgba(54,81,62,.24); border-radius: 999px; background: rgba(255,253,248,.72); color: var(--leaf-dark); cursor: pointer; font: 700 .8rem/1.2 var(--sans); transition: background .18s ease, border-color .18s ease; }
+    .sound-toggle:hover { border-color: var(--leaf); background: var(--white); }
+    .sound-toggle[aria-pressed="true"] { background: #e5e9df; }
+    .sound-toggle-icon { display: grid; place-items: center; width: 1.25rem; height: 1.25rem; font-size: 1rem; }
+    .squish-stage { display: grid; place-items: center; min-height: 190px; margin: .9rem 0 .7rem; overflow: hidden; border-radius: 1.25rem; background: radial-gradient(ellipse at center, rgba(255,255,255,.8) 0 27%, transparent 28%), linear-gradient(145deg,#f4e4d2,#e7d5c0); }
+    .big-spring { width: 132px; height: 170px; padding: 0; }
+    .big-spring .spring-art { width: 100%; height: 100%; }
+    .spring-charge-meter { width: min(100%, 270px); height: 8px; margin: .35rem auto .3rem; overflow: hidden; border-radius: 999px; background: #dfe3d9; }
+    .spring-charge-fill { display: block; width: 0%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--clay), var(--sun)); transition: width .05s linear; }
+    .spring-charge-status { min-height: 1.4em; margin: 0 0 .3rem; color: #5f6a61; font-size: .74rem; text-align: center; }
+    .toy-cue { display: block; color: #5f6a61; font-size: .76rem; text-align: center; }
+    .ripple-pad { position: relative; display: grid; place-items: center; width: 100%; min-height: 190px; margin: .9rem 0 .7rem; overflow: hidden; border: 0; border-radius: 1.25rem; background: radial-gradient(circle at 22% 28%, rgba(255,255,255,.75) 0 3px, transparent 4px), radial-gradient(circle at 74% 65%, rgba(255,255,255,.6) 0 4px, transparent 5px), radial-gradient(ellipse at 50% 35%, #a7c4b4, #739681 58%, #507562 100%); color: #fffdf8; cursor: crosshair; touch-action: manipulation; box-shadow: inset 0 0 26px rgba(40,75,58,.16); }
+    .ripple-pad:hover { filter: saturate(1.08); }
+    .ripple-label { position: relative; z-index: 1; padding: .5rem .85rem; border: 1px solid rgba(255,255,255,.54); border-radius: 999px; background: rgba(31,55,40,.72); font-family: var(--serif); font-size: 1.08rem; pointer-events: none; }
+    .ripple-ring { position: absolute; z-index: 0; width: 22px; height: 22px; border: 2px solid rgba(255,255,255,.82); border-radius: 50%; transform: translate(-50%,-50%) scale(.25); animation: ripple-wave 1.05s ease-out forwards; pointer-events: none; }
+    @keyframes ripple-wave { 0% { opacity: .85; transform: translate(-50%,-50%) scale(.25); } 100% { opacity: 0; transform: translate(-50%,-50%) scale(8); } }
+    .sensory .section-intro, .sensory-note { color: #5b665e; }
+    .sensory-note { margin: 1.25rem 0 0; font-size: .82rem; text-align: center; }
+    .micro-hint { color: var(--leaf-dark); font-size: .7rem; font-weight: 700; white-space: nowrap; }
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr .85fr; gap: 1.7rem; }
+      .hero-art { min-height: 440px; }
+      .activity-grid { grid-template-columns: repeat(3,1fr); }
+      .activity-card { min-height: 210px; }
+      .room-grid { gap: 2.5rem; }
+      .room-photo { height: 430px; }
+      .teacher-grid { gap: 2rem; }
+    }
+    @media (max-width: 700px) {
+      html { scroll-padding-top: 4.5rem; }
+      .wrap { width: min(100% - 2rem, var(--content)); }
+      .nav { min-height: 68px; flex-wrap: wrap; gap: 0; }
+      .brand { font-size: 1.08rem; }
+      .brand-mark { width: 34px; height: 34px; }
+      .menu-toggle { display: grid; place-items: center; }
+      .nav-cta { display: none; }
+      .nav-links { display: none; flex: 0 0 100%; flex-direction: column; align-items: stretch; gap: 0; margin: 0; padding: .25rem 0 .8rem; }
+      .nav-links.open { display: flex; }
+      .nav-links li { border-top: 1px solid rgba(39,54,45,.1); }
+      .nav-links a { display: block; padding: .8rem .2rem; }
+      .hero { padding: 3rem 0 4.5rem; }
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      h1 { max-width: 560px; font-size: clamp(3rem, 12vw, 4.5rem); }
+      .hero-art { min-height: min(105vw, 430px); margin-inline: .5rem; }
+      .hero-photo { inset-inline: 6%; width: 88%; }
+      .float-stamp { top: .7rem; width: 74px; height: 74px; font-size: .62rem; }
+      .photo-label { bottom: 1.2rem; max-width: 190px; font-size: .92rem; }
+      .section { padding: 4.5rem 0; }
+      .section-head { margin-bottom: 2rem; }
+      .principles { grid-template-columns: 1fr; }
+      .principle { min-height: auto; padding: 1.4rem; }
+      .principle-icon { margin-bottom: 1rem; }
+      .room-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .room-photo { height: min(110vw, 460px); }
+      .room-list li { flex-direction: column; gap: .15rem; }
+      .activity-grid { grid-template-columns: repeat(2,1fr); gap: .7rem; }
+      .activity-card { min-height: 215px; padding: 1rem; }
+      .activity-card:last-child { grid-column: 1 / -1; min-height: auto; }
+      .teacher-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .guide-steps { gap: .6rem; }
+      .sensory-grid { grid-template-columns: 1fr; }
+      .bead-moment { max-width: none; }
+      .day-flow { grid-template-columns: 1fr 1fr; row-gap: 1.7rem; }
+      .day-stop { padding-inline: .8rem; }
+      .day-stop::before { left: .8rem; }
+      .faq-grid { grid-template-columns: 1fr; gap: 1.4rem; }
+      .visit-inner { align-items: flex-start; flex-direction: column; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+      .footer-note { text-align: left; }
+    }
+    @media (max-width: 390px) {
+      .wrap { width: min(100% - 1.35rem, var(--content)); }
+      .hero-actions { align-items: stretch; flex-direction: column; }
+      .hero-actions .button { width: 100%; }
+      .hero-art { min-height: 350px; }
+      .activity-grid { grid-template-columns: 1fr; }
+      .activity-card, .activity-card:last-child { min-height: auto; }
+      .day-flow { grid-template-columns: 1fr; row-gap: 1.4rem; }
+      .day-stop { min-height: 120px; }
+      .visit .button { width: 100%; }
+    }
+    .footer-greeting { max-width: var(--content); margin: 1.35rem auto 0; padding-top: 1rem; border-top: 1px solid rgba(230,196,139,.24); color: #e6c48b; font-family: var(--serif); font-size: 1.3rem; font-style: italic; letter-spacing: .025em; text-align: center; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="The Montessori Way home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="34" height="34" viewBox="0 0 40 40" fill="none"><path d="M20 34V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path><path d="M20 22C10 22 8 16 8 12c6 0 11 2 12 10Z" fill="#dce5d8" stroke="currentColor" stroke-width="1.5"></path><path d="M20 17c0-7 4-11 11-12 1 7-3 12-11 14" fill="#e7bd72" stroke="currentColor" stroke-width="1.5"></path><path d="M11 34h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+        </span>
+        <span>The Montessori Way</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-menu">
+        <svg class="menu-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg>
+      </button>
+      <ul class="nav-links" id="site-menu">
+        <li><a href="#approach">The approach</a></li>
+        <li><a href="#classroom">The room</a></li>
+        <li><a href="#activities">Everyday work</a></li>
+        <li><a href="#teachers">The teacher</a></li>
+      </ul>
+      <a class="nav-cta" href="#a-day">A day in Montessori <span class="arrow" aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">An invitation to grow</p>
+          <h1 id="hero-title">Let curiosity <em>lead</em> the way.</h1>
+          <p class="hero-copy">Montessori is a thoughtful approach to learning that trusts children to explore, practice, and find their next challenge—with a prepared space and caring adult close by.</p>
+          <div class="hero-actions">
+            <a class="button" href="#approach">Discover the approach <span class="arrow" aria-hidden="true">↓</span></a>
+            <a class="button button-light" href="#classroom">Step inside a classroom</a>
+          </div>
+          <div class="hero-note"><span class="note-sprig" aria-hidden="true">✳</span><span class="hero-note-copy">Small choices. Meaningful work. Growing confidence.</span><span class="micro-hint">hold to charge</span><button class="spring-button mini-spring" type="button" data-spring="" aria-label="Hold the little spring to charge for up to five seconds, then release" title="Hold to charge, release to rebound"><svg class="spring-art" viewBox="0 0 180 210" aria-hidden="true"><defs><linearGradient id="spring-metal-mini" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#9c6247"></stop><stop offset=".45" stop-color="#f2c987"></stop><stop offset="1" stop-color="#b77552"></stop></linearGradient></defs><ellipse cx="90" cy="174" rx="39" ry="8" fill="#8f644c" opacity=".2"></ellipse><g class="spring-coil"><path class="spring-wire" d="M90 151 C36 151 36 139 90 139 C144 139 144 127 90 127 C36 127 36 115 90 115 C144 115 144 103 90 103 C36 103 36 91 90 91 C144 91 144 79 90 79 C36 79 36 67 90 67 C144 67 144 55 90 55 C36 55 36 43 90 43 L90 34" stroke="url(#spring-metal-mini)"></path><path class="spring-highlight" d="M53 146 C49 143 50 141 57 140 M122 122 C129 119 129 117 123 115 M53 98 C49 95 50 93 57 92 M122 74 C129 71 129 69 123 67 M53 50 C49 47 50 45 57 44"></path><ellipse class="spring-cap" cx="90" cy="34" rx="23" ry="6"></ellipse></g><ellipse class="spring-cap" cx="90" cy="158" rx="34" ry="7"></ellipse></svg></button></div>
+        </div>
+        <div class="hero-art">
+          <img class="hero-photo" src="https://images.pexels.com/photos/40282977/pexels-photo-40282977.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" alt="A young child carefully exploring Montessori materials on a floor mat" width="1400" height="933" fetchpriority="high">
+          <div class="hero-photo-frame" aria-hidden="true"></div>
+          <div class="photo-label"><span aria-hidden="true">✳</span> Room to try. Support to grow.</div>
+          <div class="float-stamp" aria-label="Follow the child">FOLLOW<br>THE CHILD<br>✳</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section approach" id="approach" aria-labelledby="approach-title">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">A different kind of learning</p>
+          <h2 id="approach-title">Freedom, with a thoughtful frame.</h2>
+          <p class="section-intro">Children are active participants—not just listeners. A Montessori guide prepares the environment, introduces materials, and makes room for focused practice at each child’s pace.</p>
+        </div>
+        <div class="principles">
+          <article class="principle">
+            <div class="principle-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 20V10m0 3c-5 0-7-2.5-7-6 4 0 7 1.5 7 6Zm0-3c0-4 2.5-6 6-7 0 4-1.5 7-6 8Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+            <h3>Choice with purpose</h3>
+            <p>Children choose from inviting work they have been shown, then return it ready for the next person.</p>
+          </article>
+          <article class="principle">
+            <div class="principle-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 19h14M7 16V9h3v7m2 0V5h3v11m2 0v-4h2v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+            <h3>Hands-on discovery</h3>
+            <p>Beautiful, purposeful materials let children touch, sort, compare, repeat—and notice what changes.</p>
+          </article>
+          <article class="principle">
+            <div class="principle-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"></circle><path d="M12 7v5l3 2m4.3-7.3 1.2-1.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg></div>
+            <h3>Time to concentrate</h3>
+            <p>Long stretches for independent work help children settle in, build stamina, and follow an idea further.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section room" id="classroom" aria-labelledby="room-title">
+      <div class="wrap room-grid">
+        <figure class="room-photo-wrap">
+          <img class="room-photo" src="https://images.pexels.com/photos/8923987/pexels-photo-8923987.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" alt="A bright classroom with low wooden shelves, hands-on materials, and a floor mat" width="1400" height="2100" loading="lazy">
+          <figcaption class="image-credit">Classroom materials · <a href="https://www.pexels.com/photo/educational-toys-on-shelves-8923987/" target="_blank" rel="noreferrer">Photo by Mikhail Nilov / Pexels</a></figcaption>
+        </figure>
+        <div>
+          <p class="eyebrow">The prepared environment</p>
+          <h2 id="room-title">A room that says, “you can.”</h2>
+          <p class="section-intro">A Montessori classroom is arranged for children to take part. Materials are visible and reachable; furniture fits small bodies; everyday care is built into the space. The feeling is calm, but the room is very much alive with purposeful work.</p>
+          <ul class="room-list">
+            <li><strong>Everything within reach</strong><span>Low shelves, child-sized tools, and clear paths invite independence.</span></li>
+            <li><strong>Order that makes sense</strong><span>Work has a home, so children can find it and put it back.</span></li>
+            <li><strong>Room to belong</strong><span>Shared spaces make space for quiet focus, conversation, movement, and rest.</span></li>
+            <li><strong>Real care, every day</strong><span>Plants, pouring, tidying, and helping are part of the learning.</span></li>
+          </ul>
+          <div class="bead-moment">
+            <div class="bead-heading"><label for="bead-slider">Roll a little wooden bead</label><output class="bead-readout" id="bead-readout" for="bead-slider">Resting in the middle</output></div>
+            <p class="bead-help" id="bead-help">Drag it slowly, tap it, or use the arrow keys for a gentle wooden roll.</p>
+            <input id="bead-slider" type="range" min="0" max="100" value="50" aria-describedby="bead-help" style="--progress: 51%;">
+            <div class="bead-track-labels" aria-hidden="true"><span>soft start</span><span>soft finish</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section activity" id="activities" aria-labelledby="activities-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">A hands-on day</p>
+          <h2 id="activities-title">Little tasks. Big ideas.</h2>
+          <p class="section-intro">Montessori work moves from concrete experience toward deeper understanding. Children may choose, repeat, and revisit activities as their skills grow.</p>
+        </div>
+        <div class="activity-grid">
+          <article class="activity-card">
+            <div class="activity-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 4h10l-1 4H8L7 4Zm1 4-2 12h12L16 8m-4-1v10m-2-3 2 3 2-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+            <h3>Practical life</h3><p>Pouring water, polishing a tray, preparing a snack, or caring for a plant.</p>
+          </article>
+          <article class="activity-card">
+            <div class="activity-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="9" r="3" stroke="currentColor" stroke-width="1.6"></circle><circle cx="16" cy="15" r="4" stroke="currentColor" stroke-width="1.6"></circle><path d="M8 15v5m-2.5-2.5h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></div>
+            <h3>Sensorial</h3><p>Matching, grading, and sorting objects by texture, shape, sound, or size.</p>
+          </article>
+          <article class="activity-card">
+            <div class="activity-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 6.5c2.3-1.2 4.6-1.2 7 0v12c-2.4-1.2-4.7-1.2-7 0v-12Zm14 0c-2.3-1.2-4.6-1.2-7 0v12c2.4-1.2 4.7-1.2 7 0v-12Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path><path d="M8 10h1.5m-1.5 3h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></div>
+            <h3>Language</h3><p>Tracing tactile letters, listening to sounds, building words, and sharing stories.</p>
+          </article>
+          <article class="activity-card">
+            <div class="activity-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="6" height="14" rx="1" stroke="currentColor" stroke-width="1.6"></rect><rect x="14" y="5" width="6" height="14" rx="1" stroke="currentColor" stroke-width="1.6"></rect><path d="M7 8v8m10-8v8M5.5 12h3m8 0h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></div>
+            <h3>Mathematics</h3><p>Making number visible with rods, counters, beads, and careful patterning.</p>
+          </article>
+          <article class="activity-card">
+            <div class="activity-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.2-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.8-7 10-7 10Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path><path d="M12 7v7m-2.3-2.3L12 14l2.3-2.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+            <h3>Culture &amp; nature</h3><p>Noticing the natural world, exploring maps, music, art, science, and living things.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sensory" id="sensory" aria-labelledby="sensory-title">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">A mindful little pause</p>
+          <h2 id="sensory-title">Press, notice, let go.</h2>
+          <p class="section-intro">A couple of gentle sensory moments inspired by hands-on classroom materials. No scores, no timers—just a little room to explore.</p>
+          <div class="sound-control-row"><button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" aria-label="Mute sensory sounds"><span class="sound-toggle-icon" id="sound-toggle-icon" aria-hidden="true">♫</span><span id="sound-toggle-label">Mute sounds</span></button></div>
+        </div>
+        <div class="sensory-grid">
+          <article class="sensory-card">
+            <div class="sensory-card-head"><span class="sensory-kicker">Press &amp; release</span><span class="sensory-mark" aria-hidden="true">✳</span></div>
+            <h3>A coil spring</h3>
+            <p>Hold to charge the coil for up to five seconds. Release early for a smaller bounce and softer boing; a full charge gives the strongest rebound and a brighter, still-gentle boing.</p>
+            <div class="squish-stage"><button class="spring-button big-spring" type="button" data-spring="" aria-label="Press and hold the coil spring to charge it for up to five seconds, then release for a rebound"><svg class="spring-art" viewBox="0 0 180 210" aria-hidden="true"><defs><linearGradient id="spring-metal-main" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#9c6247"></stop><stop offset=".45" stop-color="#f2c987"></stop><stop offset="1" stop-color="#b77552"></stop></linearGradient></defs><ellipse cx="90" cy="174" rx="39" ry="8" fill="#8f644c" opacity=".2"></ellipse><g class="spring-coil"><path class="spring-wire" d="M90 151 C36 151 36 139 90 139 C144 139 144 127 90 127 C36 127 36 115 90 115 C144 115 144 103 90 103 C36 103 36 91 90 91 C144 91 144 79 90 79 C36 79 36 67 90 67 C144 67 144 55 90 55 C36 55 36 43 90 43 L90 34" stroke="url(#spring-metal-main)"></path><path class="spring-highlight" d="M53 146 C49 143 50 141 57 140 M122 122 C129 119 129 117 123 115 M53 98 C49 95 50 93 57 92 M122 74 C129 71 129 69 123 67 M53 50 C49 47 50 45 57 44"></path><ellipse class="spring-cap" cx="90" cy="34" rx="23" ry="6"></ellipse></g><ellipse class="spring-cap" cx="90" cy="158" rx="34" ry="7"></ellipse></svg></button></div>
+            <div class="spring-charge-meter" id="spring-charge-progress" role="progressbar" aria-label="Spring charge in seconds" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" aria-valuetext="0 seconds charged out of 5"><span class="spring-charge-fill" id="spring-charge-fill"></span></div>
+            <p class="spring-charge-status" id="spring-charge-status" aria-live="polite">Hold to charge for up to 5 seconds</p>
+            <span class="toy-cue">The longer you hold, the stronger the rebound</span>
+          </article>
+          <article class="sensory-card">
+            <div class="sensory-card-head"><span class="sensory-kicker">Tap &amp; watch</span><span class="sensory-mark" aria-hidden="true">≈</span></div>
+            <h3>A quiet pond</h3>
+            <p>Choose a spot on the water and watch soft rings drift outward and fade with a tiny, smooth splash.</p>
+            <button class="ripple-pad" type="button" data-ripple="" aria-label="Tap or click anywhere on the quiet pond to make a ripple"><span class="ripple-label" aria-hidden="true">tap anywhere</span></button>
+            <span class="toy-cue">A mouse click, finger tap, or keyboard press makes a ripple and a quiet splash</span>
+          </article>
+        </div>
+        <p class="sensory-note">These tiny interactions are optional. The page also respects reduced-motion settings.</p>
+      </div>
+    </section>
+
+    <section class="section teacher" id="teachers" aria-labelledby="teacher-title">
+      <div class="wrap teacher-grid">
+        <div>
+          <p class="eyebrow">The Montessori teacher</p>
+          <h2 id="teacher-title">The guide is not the spotlight.</h2>
+          <p class="teacher-copy">A Montessori teacher notices before stepping in. They observe what a child is ready for, offer a clear and unhurried lesson, then give the child room to try. Their planning, patience, and relationship-building make independent learning possible.</p>
+          <p class="teacher-copy">They also care for the community: helping children practice respect, repair a mistake, ask for help, and look after the shared room.</p>
+          <p class="teacher-quote">Notice first. Offer a lesson. Leave room for the child.</p>
+        </div>
+        <div class="guide-steps" aria-label="How a Montessori guide supports learning">
+          <article class="guide-step"><span class="step-number">01</span><div><h3>Observe</h3><p>Notice interests, readiness, and the next useful challenge.</p></div></article>
+          <article class="guide-step"><span class="step-number">02</span><div><h3>Introduce</h3><p>Offer a brief, clear demonstration with care and purpose.</p></div></article>
+          <article class="guide-step"><span class="step-number">03</span><div><h3>Step back</h3><p>Make space for practice, concentration, and discovery.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section day" id="a-day" aria-labelledby="day-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">A rhythm, not a race</p>
+          <h2 id="day-title">What might a day feel like?</h2>
+          <p class="section-intro">A Montessori day balances focused work with care, connection, movement, and time outdoors.</p>
+        </div>
+        <div class="day-flow">
+          <article class="day-stop"><span class="day-time">Arrive</span><h3>Settle in</h3><p>Greet one another, put belongings away, and choose a first activity.</p></article>
+          <article class="day-stop"><span class="day-time">Explore</span><h3>Choose &amp; focus</h3><p>Work independently or with a friend; meet with a teacher for a lesson.</p></article>
+          <article class="day-stop"><span class="day-time">Connect</span><h3>Care &amp; gather</h3><p>Share food, look after the room, tell stories, and enjoy the outdoors.</p></article>
+          <article class="day-stop"><span class="day-time">Reflect</span><h3>Finish together</h3><p>Return materials, remember the day, and prepare for tomorrow.</p></article>
+        </div>
+        <p class="day-note">Every program is different; the rhythm varies with age, school, and community.</p>
+      </div>
+    </section>
+
+    <section class="section questions" id="questions" aria-labelledby="faq-title">
+      <div class="wrap faq-grid">
+        <div>
+          <p class="eyebrow">A few good questions</p>
+          <h2 id="faq-title">Curious? Start here.</h2>
+          <p class="section-intro">Montessori classrooms can look different from one another. A visit is a lovely way to see the approach in action.</p>
+        </div>
+        <div class="faq-list">
+          <details><summary>Do children work alone all day?</summary><p>No. Children often choose individual work, but they also collaborate, observe one another, join lessons, share meals, and care for the community. Independence and connection both matter.</p></details>
+          <details><summary>Is Montessori the same in every school?</summary><p>No. Programs vary in age groups, schedules, teacher preparation, and how closely they follow Montessori practice. Ask a school how children choose work, how lessons are introduced, and what training its guides have.</p></details>
+          <details><summary>What should I look for on a visit?</summary><p>Notice whether children can reach and return materials, whether adults speak respectfully, and whether the room offers both meaningful choice and calm support. Ask how the school partners with families and supports different learners.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" aria-label="Take the next step">
+      <div class="wrap visit-inner">
+        <h2>Sometimes the best first step is simply to look around.</h2>
+        <a class="button" href="#classroom">Explore the classroom <span class="arrow" aria-hidden="true">↑</span></a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap footer-row">
+      <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 40 40" fill="none"><path d="M20 34V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path><path d="M20 22C10 22 8 16 8 12c6 0 11 2 12 10Z" fill="#dce5d8" stroke="currentColor" stroke-width="1.5"></path><path d="M20 17c0-7 4-11 11-12 1 7-3 12-11 14" fill="#e7bd72" stroke="currentColor" stroke-width="1.5"></path><path d="M11 34h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></span><span>The Montessori Way</span></a>
+      <p class="footer-note">A welcoming introduction, not a school directory. Photos: <a href="https://www.pexels.com/photo/educational-toys-on-shelves-8923987/" target="_blank" rel="noreferrer">Mikhail Nilov</a> and <a href="https://www.pexels.com/photo/child-engaged-in-montessori-learning-activity-indoors-40282977/" target="_blank" rel="noreferrer">Anil Sharma</a> via Pexels.</p>
+    </div>
+    <p class="wrap footer-greeting">Hello Tiffinee</p>
+  </footer>
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('#site-menu');
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      toggle.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
+      menu.classList.toggle('open', !expanded);
+    });
+    menu.addEventListener('click', (event) => {
+      if (event.target.closest('a')) {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open navigation');
+      }
+    });
+    const soundToggle = document.querySelector('#sound-toggle');
+    const soundToggleLabel = document.querySelector('#sound-toggle-label');
+    const soundToggleIcon = document.querySelector('#sound-toggle-icon');
+    let soundsMuted = false;
+    let audioContext = null;
+    let masterGain = null;
+    let splashNoiseBuffer = null;
+    let woodRollNoiseBuffer = null;
+
+    function getAudioContext() {
+      if (soundsMuted) return null;
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) return null;
+      try {
+        if (!audioContext) {
+          audioContext = new AudioContextClass();
+          masterGain = audioContext.createGain();
+          masterGain.gain.value = 1;
+          masterGain.connect(audioContext.destination);
+        }
+        if (audioContext.state === 'suspended') audioContext.resume().catch(() => {});
+        return audioContext;
+      } catch (_) {
+        return null;
+      }
+    }
+
+    function playSoftTone(startFrequency, endFrequency, duration, volume, delay = 0, type = 'sine') {
+      const context = getAudioContext();
+      if (!context || !masterGain) return;
+      const start = context.currentTime + delay;
+      const oscillator = context.createOscillator();
+      const envelope = context.createGain();
+      oscillator.type = type;
+      oscillator.frequency.setValueAtTime(startFrequency, start);
+      oscillator.frequency.exponentialRampToValueAtTime(endFrequency, start + duration);
+      envelope.gain.setValueAtTime(0.0001, start);
+      envelope.gain.exponentialRampToValueAtTime(volume, start + Math.min(.018, duration * .25));
+      envelope.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+      oscillator.connect(envelope);
+      envelope.connect(masterGain);
+      oscillator.start(start);
+      oscillator.stop(start + duration + .02);
+    }
+
+    function playSpringBoing(isRelease, charge = 0) {
+      if (isRelease) {
+        const strength = Math.max(0, Math.min(1, charge));
+        playSoftTone(360 + strength * 90, 260 + strength * 70, .16 + strength * .07, .018 + strength * .022);
+        playSoftTone(270 + strength * 75, 205 + strength * 55, .14 + strength * .05, .012 + strength * .013, .085);
+      } else {
+        playSoftTone(260, 175, .14, .021);
+        playSoftTone(220, 195, .13, .014, .075);
+      }
+    }
+
+    function playPondSplash() {
+      const context = getAudioContext();
+      if (!context || !masterGain) return;
+      if (!splashNoiseBuffer) {
+        const length = Math.max(1, Math.floor(context.sampleRate * .14));
+        splashNoiseBuffer = context.createBuffer(1, length, context.sampleRate);
+        const data = splashNoiseBuffer.getChannelData(0);
+        for (let i = 0; i < length; i += 1) data[i] = (Math.random() * 2 - 1) * (1 - i / length);
+      }
+      const now = context.currentTime;
+      const splash = context.createBufferSource();
+      const filter = context.createBiquadFilter();
+      const envelope = context.createGain();
+      splash.buffer = splashNoiseBuffer;
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(1050, now);
+      filter.Q.value = .55;
+      envelope.gain.setValueAtTime(.0001, now);
+      envelope.gain.exponentialRampToValueAtTime(.006, now + .022);
+      envelope.gain.exponentialRampToValueAtTime(.0001, now + .135);
+      splash.connect(filter);
+      filter.connect(envelope);
+      envelope.connect(masterGain);
+      splash.start(now);
+      splash.stop(now + .15);
+      playSoftTone(560, 430, .15, .009);
+      playSoftTone(760, 560, .12, .0055, .035);
+    }
+
+    function playWoodBeadRoll(distance, elapsedMs) {
+      const context = getAudioContext();
+      if (!context || !masterGain || soundsMuted) return;
+      if (!woodRollNoiseBuffer) {
+        const length = Math.max(1, Math.floor(context.sampleRate * .075));
+        woodRollNoiseBuffer = context.createBuffer(1, length, context.sampleRate);
+        const data = woodRollNoiseBuffer.getChannelData(0);
+        for (let i = 0; i < length; i += 1) {
+          data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (length * .18));
+        }
+      }
+      const now = context.currentTime;
+      const speed = Math.min(1, Math.abs(distance) / Math.max(1, elapsedMs / 20));
+      const grain = context.createBufferSource();
+      const filter = context.createBiquadFilter();
+      const grainEnvelope = context.createGain();
+      grain.buffer = woodRollNoiseBuffer;
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(760 + speed * 420, now);
+      filter.Q.value = .45;
+      grainEnvelope.gain.setValueAtTime(.0001, now);
+      grainEnvelope.gain.exponentialRampToValueAtTime(.0022 + speed * .0016, now + .008);
+      grainEnvelope.gain.exponentialRampToValueAtTime(.0001, now + .072);
+      grain.connect(filter);
+      filter.connect(grainEnvelope);
+      grainEnvelope.connect(masterGain);
+      grain.start(now);
+      grain.stop(now + .08);
+
+      const body = context.createOscillator();
+      const bodyEnvelope = context.createGain();
+      body.type = 'sine';
+      body.frequency.setValueAtTime(250 + speed * 50, now);
+      body.frequency.exponentialRampToValueAtTime(155 + speed * 35, now + .095);
+      bodyEnvelope.gain.setValueAtTime(.0001, now);
+      bodyEnvelope.gain.exponentialRampToValueAtTime(.0024 + speed * .0015, now + .007);
+      bodyEnvelope.gain.exponentialRampToValueAtTime(.0001, now + .1);
+      body.connect(bodyEnvelope);
+      bodyEnvelope.connect(masterGain);
+      body.start(now);
+      body.stop(now + .11);
+    }
+
+    if (soundToggle) {
+      soundToggle.addEventListener('click', () => {
+        soundsMuted = !soundsMuted;
+        soundToggle.setAttribute('aria-pressed', String(soundsMuted));
+        soundToggle.setAttribute('aria-label', soundsMuted ? 'Unmute sensory sounds' : 'Mute sensory sounds');
+        soundToggleLabel.textContent = soundsMuted ? 'Unmute sounds' : 'Mute sounds';
+        soundToggleIcon.textContent = soundsMuted ? '×' : '♫';
+        if (masterGain && audioContext) {
+          masterGain.gain.cancelScheduledValues(audioContext.currentTime);
+          masterGain.gain.setValueAtTime(soundsMuted ? 0 : 1, audioContext.currentTime);
+        }
+      });
+    }
+
+    const chargeDurationMs = 5000;
+    const mainSpring = document.querySelector('.big-spring');
+    const springChargeProgress = document.querySelector('#spring-charge-progress');
+    const springChargeFill = document.querySelector('#spring-charge-fill');
+    const springChargeStatus = document.querySelector('#spring-charge-status');
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const chargeHint = 'Hold to charge for up to 5 seconds';
+
+    function renderSpringCharge(button, charge, forceAccessibleUpdate = false) {
+      const value = Math.max(0, Math.min(1, charge));
+      button.springCharge = value;
+      const reducedMotion = reducedMotionQuery.matches;
+      const coilScale = reducedMotion ? 1 : 1 - value * .42;
+      button.style.setProperty('--spring-scale', coilScale.toFixed(4));
+      button.style.setProperty('--spring-glow', (reducedMotion ? 0 : value * .42).toFixed(3));
+      if (button === mainSpring && springChargeFill && springChargeProgress) {
+        const seconds = Math.round(value * 50) / 10;
+        springChargeFill.style.width = reducedMotion ? (value >= 1 ? '100%' : '0%') : `${value * 100}%`;
+        springChargeFill.style.transition = 'none';
+        const accessibleSeconds = value >= 1 ? 5 : Math.floor(value * 10) / 2;
+        if (forceAccessibleUpdate || value === 0 || accessibleSeconds - (button.lastA11ySeconds || 0) >= .5) {
+          button.lastA11ySeconds = accessibleSeconds;
+          springChargeProgress.setAttribute('aria-valuenow', accessibleSeconds.toFixed(1));
+          springChargeProgress.setAttribute('aria-valuetext', `${accessibleSeconds.toFixed(1)} seconds charged out of 5`);
+        }
+      }
+      return value;
+    }
+
+    document.querySelectorAll('[data-spring]').forEach((button) => {
+      const pressSpring = () => {
+        if (button.dataset.springDown === 'true') return;
+        window.clearTimeout(button.springTimer);
+        window.clearInterval(button.springChargeInterval);
+        button.dataset.springDown = 'true';
+        button.dataset.fullChargeAnnounced = 'false';
+        button.springChargeStartedAt = performance.now();
+        button.lastA11ySeconds = 0;
+        renderSpringCharge(button, 0, true);
+        button.classList.remove('is-releasing');
+        void button.offsetWidth;
+        button.classList.add('is-compressed', 'is-charging');
+        if (button === mainSpring && springChargeStatus) springChargeStatus.textContent = 'Charging — keep holding for a stronger rebound';
+        playSpringBoing(false);
+        button.lastKeyboardAction = performance.now();
+
+        const chargeTick = () => {
+          if (button.dataset.springDown !== 'true') return;
+          const charge = renderSpringCharge(button, (performance.now() - button.springChargeStartedAt) / chargeDurationMs);
+          if (charge >= 1) {
+            window.clearInterval(button.springChargeInterval);
+            button.springChargeInterval = 0;
+            if (button.dataset.fullChargeAnnounced !== 'true') {
+              button.dataset.fullChargeAnnounced = 'true';
+              if (button === mainSpring && springChargeStatus) springChargeStatus.textContent = 'Full charge — release for the strongest rebound';
+            }
+          }
+        };
+        button.springChargeInterval = window.setInterval(chargeTick, 40);
+      };
+
+      const releaseSpring = () => {
+        if (button.dataset.springDown !== 'true') return;
+        const elapsed = performance.now() - button.springChargeStartedAt;
+        const charge = renderSpringCharge(button, elapsed / chargeDurationMs, true);
+        window.clearInterval(button.springChargeInterval);
+        button.springChargeInterval = 0;
+        button.dataset.springDown = 'false';
+        button.classList.remove('is-compressed', 'is-charging');
+        button.classList.add('is-releasing');
+        const reducedMotion = reducedMotionQuery.matches;
+        const startScale = reducedMotion ? 1 : 1 - charge * .42;
+        const bounce = reducedMotion ? 0 : .02 + charge * .12;
+        const settle = reducedMotion ? 1 : 1 - (.012 + charge * .035);
+        const reboundSeconds = reducedMotion ? .02 : .24 + charge * .38;
+        button.style.setProperty('--spring-rebound-start', startScale.toFixed(4));
+        button.style.setProperty('--spring-rebound-over', (1 + bounce).toFixed(4));
+        button.style.setProperty('--spring-rebound-settle', settle.toFixed(4));
+        button.style.setProperty('--spring-return-duration', `${reboundSeconds}s`);
+        playSpringBoing(true, charge);
+        button.lastKeyboardAction = performance.now();
+
+        if (button === mainSpring && springChargeProgress && springChargeFill) {
+          const seconds = Math.round(charge * 50) / 10;
+          if (springChargeStatus) springChargeStatus.textContent = `${seconds.toFixed(1)} seconds charged — springing back`;
+          springChargeProgress.setAttribute('aria-valuetext', `Released from ${seconds.toFixed(1)} seconds of charge`);
+          springChargeFill.style.transition = reducedMotion ? 'none' : `width ${reboundSeconds}s ease-out`;
+          springChargeFill.style.width = '0%';
+        }
+        window.clearTimeout(button.springTimer);
+        button.springTimer = window.setTimeout(() => {
+          button.classList.remove('is-releasing');
+          button.style.setProperty('--spring-scale', '1');
+          button.style.setProperty('--spring-glow', '0');
+          if (button === mainSpring && springChargeProgress && springChargeFill) {
+            springChargeFill.style.transition = 'width .05s linear';
+            springChargeFill.style.width = '0%';
+            springChargeProgress.setAttribute('aria-valuenow', '0');
+            springChargeProgress.setAttribute('aria-valuetext', '0 seconds charged out of 5');
+            if (springChargeStatus) springChargeStatus.textContent = chargeHint;
+          }
+        }, reboundSeconds * 1000 + 90);
+      };
+
+      button.releaseSpring = releaseSpring;
+      button.addEventListener('pointerdown', (event) => {
+        if (event.pointerType === 'mouse' && event.button !== 0) return;
+        pressSpring();
+        if (button.setPointerCapture) {
+          try { button.setPointerCapture(event.pointerId); } catch (_) {}
+        }
+      });
+      button.addEventListener('pointerup', releaseSpring);
+      button.addEventListener('pointercancel', releaseSpring);
+      button.addEventListener('lostpointercapture', releaseSpring);
+      button.addEventListener('keydown', (event) => {
+        if (event.code === 'Space' || event.code === 'Enter') {
+          event.preventDefault();
+          if (!event.repeat) pressSpring();
+        }
+      });
+      button.addEventListener('keyup', (event) => {
+        if (event.code === 'Space' || event.code === 'Enter') {
+          event.preventDefault();
+          releaseSpring();
+        }
+      });
+      button.addEventListener('blur', releaseSpring);
+      button.addEventListener('click', (event) => {
+        if (event.detail !== 0 || performance.now() - (button.lastKeyboardAction || 0) < 400) return;
+        pressSpring();
+        window.setTimeout(releaseSpring, 180);
+      });
+    });
+    window.addEventListener('blur', () => document.querySelectorAll('[data-spring]').forEach((button) => {
+      if (button.dataset.springDown === 'true' && button.releaseSpring) button.releaseSpring();
+    }));
+    const bead = document.querySelector('#bead-slider');
+    const beadReadout = document.querySelector('#bead-readout');
+    if (bead && beadReadout) {
+      let previousBeadValue = Number(bead.value);
+      let previousBeadInputAt = performance.now();
+      let previousBeadSoundAt = 0;
+      const updateBead = (playSound = false) => {
+        const currentValue = Number(bead.value);
+        const now = performance.now();
+        if (playSound && currentValue !== previousBeadValue && now - previousBeadSoundAt >= 45) {
+          playWoodBeadRoll(currentValue - previousBeadValue, Math.max(16, now - previousBeadInputAt));
+          previousBeadSoundAt = now;
+        }
+        previousBeadValue = currentValue;
+        previousBeadInputAt = now;
+        const position = (currentValue - Number(bead.min)) / (Number(bead.max) - Number(bead.min)) * 100;
+        bead.style.setProperty('--progress', `${position}%`);
+        beadReadout.textContent = position < 22 ? 'Near the start' : position > 78 ? 'Near the end' : 'Resting in the middle';
+      };
+      bead.addEventListener('input', () => updateBead(true));
+      updateBead();
+    }
+    document.querySelectorAll('[data-ripple]').forEach((pond) => {
+      pond.addEventListener('click', (event) => {
+        playPondSplash();
+        const bounds = pond.getBoundingClientRect();
+        const x = event.detail === 0 ? bounds.width / 2 : event.clientX - bounds.left;
+        const y = event.detail === 0 ? bounds.height / 2 : event.clientY - bounds.top;
+        const ring = document.createElement('span');
+        ring.className = 'ripple-ring';
+        ring.setAttribute('aria-hidden', 'true');
+        ring.style.left = `${x}px`;
+        ring.style.top = `${y}px`;
+        pond.appendChild(ring);
+        window.setTimeout(() => ring.remove(), 1150);
+      });
+    });
+  </script>
+
+
+</body><heyclicky-cursor aria-hidden="true" style="color-scheme: initial; forced-color-adjust: initial; math-depth: initial; position-anchor: initial; text-size-adjust: initial; appearance: initial; color: initial; font: initial; font-palette: initial; font-synthesis: initial; position-area: initial; text-orientation: initial; text-rendering: initial; text-spacing-trim: initial; -webkit-font-smoothing: initial; -webkit-locale: initial; -webkit-text-orientation: initial; -webkit-writing-mode: initial; writing-mode: initial; zoom: initial; accent-color: initial; place-content: initial; place-items: initial; place-self: initial; alignment-baseline: initial; anchor-name: initial; anchor-scope: initial; animation-composition: initial; animation: initial; animation-trigger: initial; app-region: initial; aspect-ratio: initial; backdrop-filter: initial; backface-visibility: initial; background: initial; background-blend-mode: initial; baseline-shift: initial; baseline-source: initial; block-size: initial; border-block: initial; border: initial; border-radius: initial; border-collapse: initial; border-end-end-radius: initial; border-end-start-radius: initial; border-inline: initial; border-shape: initial; border-start-end-radius: initial; border-start-start-radius: initial; bottom: initial; box-decoration-break: initial; box-shadow: initial; box-sizing: initial; break-after: initial; break-before: initial; break-inside: initial; buffered-rendering: initial; caption-side: initial; caret-animation: initial; caret-color: initial; caret-shape: initial; clear: initial; clip: initial; clip-path: initial; clip-rule: initial; color-interpolation: initial; color-interpolation-filters: initial; color-rendering: initial; columns: initial; column-fill: initial; gap: initial; rule-break: initial; rule: initial; rule-inset: initial; rule-visibility-items: initial; column-span: initial; contain-intrinsic-block-size: initial; contain-intrinsic-size: initial; contain-intrinsic-inline-size: initial; container: initial; content: initial; content-visibility: initial; corner-shape: initial; corner-block-end-shape: initial; corner-block-start-shape: initial; counter-increment: initial; counter-reset: initial; counter-set: initial; cursor: initial; cx: initial; cy: initial; d: initial; dominant-baseline: initial; dynamic-range-limit: initial; empty-cells: initial; field-sizing: initial; fill: initial; fill-opacity: initial; fill-rule: initial; filter: initial; flex: initial; flex-flow: initial; flex-line-count: initial; float: initial; flood-color: initial; flood-opacity: initial; frame-sizing: initial; grid: initial; grid-area: initial; hyphenate-character: initial; hyphenate-limit-chars: initial; hyphens: initial; image-orientation: initial; image-rendering: initial; initial-letter: initial; inline-size: initial; inset-block: initial; inset-inline: initial; interactivity: initial; interest-delay: initial; interpolate-size: initial; isolation: initial; letter-spacing: initial; lighting-color: initial; line-break: initial; list-style: initial; margin-block: initial; margin: initial; margin-inline: initial; margin-trim: initial; marker: initial; mask: initial; mask-type: initial; math-shift: initial; math-style: initial; max-block-size: initial; max-height: initial; max-inline-size: initial; max-width: initial; min-block-size: initial; min-height: initial; min-inline-size: initial; min-width: initial; mix-blend-mode: initial; object-fit: initial; object-position: initial; object-view-box: initial; offset: initial; opacity: initial; order: initial; orphans: initial; outline: initial; outline-offset: initial; overflow-anchor: initial; overflow-block: initial; overflow-clip-margin: initial; overflow-inline: initial; overflow-wrap: initial; overlay: initial; overscroll-behavior-block: initial; overscroll-behavior-inline: initial; overscroll-behavior: initial; padding-block: initial; padding: initial; padding-inline: initial; page: initial; page-margin-safety: initial; page-orientation: initial; paint-order: initial; perspective: initial; perspective-origin: initial; position-try: initial; position-visibility: initial; print-color-adjust: initial; quotes: initial; r: initial; reading-flow: initial; reading-order: initial; resize: initial; right: initial; rotate: initial; ruby-align: initial; ruby-overhang: initial; ruby-position: initial; rule-overlap: initial; rx: initial; ry: initial; scale: initial; scroll-axis-lock: initial; scroll-behavior: initial; scroll-initial-target: initial; scroll-margin-block: initial; scroll-margin: initial; scroll-margin-inline: initial; scroll-marker-group: initial; scroll-padding-block: initial; scroll-padding: initial; scroll-padding-inline: initial; scroll-snap-align: initial; scroll-snap-stop: initial; scroll-snap-type: initial; scroll-target-group: initial; scroll-timeline: initial; scrollbar-color: initial; scrollbar-gutter: initial; scrollbar-width: initial; shape-image-threshold: initial; shape-margin: initial; shape-outside: initial; shape-rendering: initial; size: initial; speak: initial; stop-color: initial; stop-opacity: initial; stroke: initial; stroke-dasharray: initial; stroke-dashoffset: initial; stroke-linecap: initial; stroke-linejoin: initial; stroke-miterlimit: initial; stroke-opacity: initial; stroke-width: initial; tab-size: initial; table-layout: initial; text-align: initial; text-align-last: initial; text-anchor: initial; text-autospace: initial; text-box: initial; text-combine-upright: initial; text-decoration: initial; text-decoration-inset: initial; text-decoration-skip-ink: initial; text-emphasis: initial; text-emphasis-position: initial; text-fit: initial; text-indent: initial; text-justify: initial; text-overflow: initial; text-shadow: initial; text-transform: initial; text-underline-offset: initial; text-underline-position: initial; text-wrap: initial; timeline-scope: initial; timeline-trigger: initial; touch-action: initial; transform: initial; transform-box: initial; transform-origin: initial; transform-style: initial; transition: initial; translate: initial; trigger-scope: initial; user-select: initial; vector-effect: initial; vertical-align: initial; view-timeline: initial; view-transition-class: initial; view-transition-group: initial; view-transition-name: initial; view-transition-scope: initial; visibility: initial; border-spacing: initial; -webkit-box-align: initial; -webkit-box-decoration-break: initial; -webkit-box-direction: initial; -webkit-box-flex: initial; -webkit-box-ordinal-group: initial; -webkit-box-orient: initial; -webkit-box-pack: initial; -webkit-box-reflect: initial; -webkit-line-break: initial; -webkit-line-clamp: initial; -webkit-mask-box-image: initial; -webkit-rtl-ordering: initial; -webkit-ruby-position: initial; -webkit-tap-highlight-color: initial; -webkit-text-combine: initial; -webkit-text-decorations-in-effect: initial; -webkit-text-fill-color: initial; -webkit-text-security: initial; -webkit-text-stroke: initial; -webkit-user-drag: initial; white-space-collapse: initial; widows: initial; will-change: initial; window-drag: initial; word-break: initial; word-spacing: initial; x: initial; y: initial; contain: layout style; position: fixed !important; left: 0px !important; top: 0px !important; width: 0px !important; height: 0px !important; overflow: visible !important; z-index: 2147483647 !important; pointer-events: none !important; display: block !important; --t: #D4A017;"></heyclicky-cursor></html>
